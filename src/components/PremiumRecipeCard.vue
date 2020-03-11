@@ -11,6 +11,11 @@
         <img src="../assets/overlay.png" />
       </div>
     </div>
+    <div class="card-content">
+      <h3 class="card-content-heading">
+        Low Carb Thai Chicken Curry With Coconut Cauliflower Rice
+      </h3>
+    </div>
   </div>
 </template>
 
@@ -28,6 +33,9 @@ export default {
   width: 343px;
   margin: auto;
   font-size: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 .card-wrapper:hover {
   cursor: pointer;
@@ -65,5 +73,16 @@ export default {
 .premium-content {
   color: #fff;
   font-weight: bold;
+}
+.card-content {
+  background-color: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 15px;
+  text-align: left;
+}
+.card-content-heading {
+  text-align: left;
+  padding-bottom: 15px;
+  margin: 0;
 }
 </style>
