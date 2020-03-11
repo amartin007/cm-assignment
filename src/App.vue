@@ -28,8 +28,9 @@ export default {
         title: "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice",
         favorite: true,
         ratings: "200 Ratings",
-        duration: "63",
-        calories: "489 Calories",
+        minutes: 63,
+        calories: 489,
+        energyUnit: "kilojoules",
         carbs: "20g",
         protein: "16g",
         fats: "6g"

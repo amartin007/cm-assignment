@@ -34,11 +34,11 @@
       <div class="card-content-bottom">
         <span>
           <img src="../assets/icons/clock.svg" class="icon-align" />
-          <span> {{ timeConvert(recipe.duration) }}</span>
+          <span> {{ timeCalc(recipe.minutes) }}</span>
         </span>
         <span>
           <img src="../assets/icons/flame.svg" class="icon-align" />
-          <span> {{ recipe.calories }}</span>
+          <span> {{ energyCalc(recipe.calories) }}</span>
         </span>
         <div class="macros">
           <span class="dot red-dot"></span> {{ recipe.carbs }}
@@ -57,10 +57,16 @@ export default {
     recipe: Object
   },
   methods: {
-    timeConvert(time) {
+    timeCalc(time) {
       let hours = Math.floor(time / 60);
       let minutes = time % 60;
       return hours > 0 ? `${hours} hr ${minutes} min` : `${minutes} min`;
+    },
+    energyCalc(calories) {
+      let kj = calories * 4.184;
+      return this.recipe.energyUnit == "kilojoules"
+        ? `${kj} Kj`
+        : `${calories} Calories`;
     }
   }
 };
