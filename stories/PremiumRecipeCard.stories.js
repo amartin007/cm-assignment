@@ -23,7 +23,8 @@ export const Default = () => ({
         energyUnit: "kilojoules",
         carbs: "20g",
         protein: "16g",
-        fats: "6g"
+        fats: "6g",
+        imgUrl: "food.png"
       })
     }
   },

@@ -1,6 +1,9 @@
 <template>
   <div class="card-wrapper" @click="recipeClicked">
-    <div class="card-top">
+    <div
+      class="card-top"
+      :style="{ 'background-image': 'url(' + imagePath() + ')' }"
+    >
       <div class="card-img">
         <img
           v-if="recipe.favorite"
@@ -62,13 +65,6 @@
 <script>
 export default {
   name: "PremiumRecipeCard",
-  data() {
-    return {
-      fullStars: 0,
-      halfStars: 0,
-      emptyStars: 0
-    };
-  },
   props: {
     recipe: Object
   },
@@ -85,14 +81,22 @@ export default {
         : `${calories} Calories`;
     },
     recipeClicked() {
-      this.$emit('recipeClicked');
+      this.$emit("recipeClicked");
+    },
+    imagePath() {
+      return require("../assets/" + this.recipe.imgUrl);
     }
   },
-  created() {
-    let stars = this.recipe.starRating;
-    this.fullStars = Math.floor(stars);
-    this.halfStars = stars % 1;
-    this.emptyStars = 5 - this.fullStars;
+  computed: {
+    fullStars() {
+      return Math.floor(this.recipe.starRating);
+    },
+    halfStars() {
+      return this.recipe.starRating % 1;
+    },
+    emptyStars() {
+      return 5 - Math.floor(this.recipe.starRating);
+    }
   }
 };
 </script>
@@ -115,7 +119,6 @@ export default {
 .card-top {
   position: relative;
   height: 200px;
-  background: url("../assets/food.png");
   border-radius: 12px 12px 0 0;
 }
 .heart-icon {
@@ -142,6 +145,10 @@ export default {
 .premium-content {
   color: #fff;
   font-weight: bold;
+}
+.premium-content > span {
+  vertical-align: top;
+  line-height: 16px;
 }
 .card-content {
   background-color: #fff;
