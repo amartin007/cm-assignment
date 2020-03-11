@@ -2,7 +2,12 @@
   <div class="card-wrapper">
     <div class="card-top">
       <div class="card-img">
-        <img src="../assets/icons/heart_empty.svg" class="heart-icon" />
+        <img
+          v-if="recipe.favorite"
+          src="../assets/icons/heart_filled.svg"
+          class="heart-icon"
+        />
+        <img v-else src="../assets/icons/heart_empty.svg" class="heart-icon" />
         <div class="premium premium-bg"></div>
         <div class="premium premium-content">
           <img src="../assets/icons/trophy.svg" class="trophy-icon" />
@@ -29,7 +34,7 @@
       <div class="card-content-bottom">
         <span>
           <img src="../assets/icons/clock.svg" class="icon-align" />
-          <span> {{ recipe.time }}</span>
+          <span> {{ timeConvert(recipe.duration) }}</span>
         </span>
         <span>
           <img src="../assets/icons/flame.svg" class="icon-align" />
@@ -50,6 +55,13 @@ export default {
   name: "PremiumRecipeCard",
   props: {
     recipe: Object
+  },
+  methods: {
+    timeConvert(time) {
+      let hours = Math.floor(time / 60);
+      let minutes = time % 60;
+      return hours > 0 ? `${hours} hr ${minutes} min` : `${minutes} min`;
+    }
   }
 };
 </script>
