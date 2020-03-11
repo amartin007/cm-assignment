@@ -35,6 +35,11 @@
           <img src="../assets/icons/flame.svg" class="icon-align" />
           <span> 489 Calories</span>
         </span>
+        <div class="macros">
+          <span class="dot red-dot"></span> 20g
+          <span class="dot blue-dot"></span> 16g
+          <span class="dot gold-dot"></span> 6g
+        </div>
       </div>
     </div>
   </div>
@@ -128,5 +133,24 @@ export default {
 .icon-align {
   vertical-align: sub;
   padding-right: 2px;
+}
+.macros {
+  float: right;
+}
+.dot {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+}
+.red-dot {
+  background-color: #f84742;
+}
+.blue-dot {
+  background-color: #3076bb;
+}
+.gold-dot {
+  background-color: #fea120;
 }
 </style>
