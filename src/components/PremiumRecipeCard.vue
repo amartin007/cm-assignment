@@ -21,10 +21,22 @@
         {{ recipe.title }}
       </h3>
       <div class="rating">
-        <img src="../assets/icons/star_full.svg" v-for="num in fullStars" :key="num" />
-        <img v-if="halfStars > 0" src="../assets/icons/star_half.svg" class="rating-stacked-top" />
-        <span :class="{'rating-stacked-bottom' : halfStars > 0}">
-          <img src="../assets/icons/star_empty.svg" v-for="num in emptyStars" :key="num" />
+        <img
+          src="../assets/icons/star_full.svg"
+          v-for="num in fullStars"
+          :key="num"
+        />
+        <img
+          v-if="halfStars > 0"
+          src="../assets/icons/star_half.svg"
+          class="rating-stacked-top"
+        />
+        <span :class="{ 'rating-stacked-bottom': halfStars > 0 }">
+          <img
+            src="../assets/icons/star_empty.svg"
+            v-for="num in emptyStars"
+            :key="num"
+          />
         </span>
         <span class="rating-text">{{ recipe.ratings }}</span>
       </div>
