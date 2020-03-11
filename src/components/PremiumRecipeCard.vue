@@ -26,6 +26,16 @@
         </div>
         <span class="rating-text">200 Ratings</span>
       </div>
+      <div class="card-content-bottom">
+        <span>
+          <img src="../assets/icons/clock.svg" class="icon-align" />
+          <span> 24 min</span>
+        </span>
+        <span>
+          <img src="../assets/icons/flame.svg" class="icon-align" />
+          <span> 489 Calories</span>
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -108,5 +118,15 @@ export default {
 }
 .rating-text {
   color: #3ab188;
+}
+.card-content-bottom {
+  font-size: 14px;
+}
+.card-content-bottom > span {
+  padding-right: 5px;
+}
+.icon-align {
+  vertical-align: sub;
+  padding-right: 2px;
 }
 </style>
