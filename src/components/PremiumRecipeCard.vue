@@ -15,6 +15,17 @@
       <h3 class="card-content-heading">
         Low Carb Thai Chicken Curry With Coconut Cauliflower Rice
       </h3>
+      <div class="rating">
+        <img src="../assets/icons/star_full.svg" />
+        <img src="../assets/icons/star_full.svg" />
+        <img src="../assets/icons/star_half.svg" class="rating-stacked-top" />
+        <div class="rating-stacked-bottom">
+          <img src="../assets/icons/star_empty.svg" />
+          <img src="../assets/icons/star_empty.svg" />
+          <img src="../assets/icons/star_empty.svg" />
+        </div>
+        <span class="rating-text">200 Ratings</span>
+      </div>
     </div>
   </div>
 </template>
@@ -84,5 +95,18 @@ export default {
   text-align: left;
   padding-bottom: 15px;
   margin: 0;
+}
+.rating {
+  padding-bottom: 5px;
+}
+.rating img {
+  height: 13px;
+}
+.rating-stacked-bottom {
+  display: inline-block;
+  transform: translate(-6px);
+}
+.rating-text {
+  color: #3ab188;
 }
 </style>
