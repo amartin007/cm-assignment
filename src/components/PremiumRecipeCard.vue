@@ -21,14 +21,11 @@
         {{ recipe.title }}
       </h3>
       <div class="rating">
-        <img src="../assets/icons/star_full.svg" />
-        <img src="../assets/icons/star_full.svg" />
-        <img src="../assets/icons/star_half.svg" class="rating-stacked-top" />
-        <div class="rating-stacked-bottom">
-          <img src="../assets/icons/star_empty.svg" />
-          <img src="../assets/icons/star_empty.svg" />
-          <img src="../assets/icons/star_empty.svg" />
-        </div>
+        <img src="../assets/icons/star_full.svg" v-for="num in fullStars" :key="num" />
+        <img v-if="halfStars > 0" src="../assets/icons/star_half.svg" class="rating-stacked-top" />
+        <span :class="{'rating-stacked-bottom' : halfStars > 0}">
+          <img src="../assets/icons/star_empty.svg" v-for="num in emptyStars" :key="num" />
+        </span>
         <span class="rating-text">{{ recipe.ratings }}</span>
       </div>
       <div class="card-content-bottom">
@@ -53,6 +50,13 @@
 <script>
 export default {
   name: "PremiumRecipeCard",
+  data() {
+    return {
+      fullStars: 0,
+      halfStars: 0,
+      emptyStars: 0
+    };
+  },
   props: {
     recipe: Object
   },
@@ -68,6 +72,12 @@ export default {
         ? `${kj} Kj`
         : `${calories} Calories`;
     }
+  },
+  created() {
+    let stars = this.recipe.starRating;
+    this.fullStars = Math.floor(stars);
+    this.halfStars = stars % 1;
+    this.emptyStars = 5 - this.fullStars;
   }
 };
 </script>
@@ -141,6 +151,8 @@ export default {
 }
 .rating-text {
   color: #3ab188;
+  padding-left: 3px;
+  font-weight: bold;
 }
 .card-content-bottom {
   font-size: 14px;
