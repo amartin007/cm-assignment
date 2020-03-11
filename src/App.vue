@@ -8,7 +8,7 @@
       <p>See the README file for assignment requirements.</p>
 
       <div class="premium-recipe-wrapper">
-        <PremiumRecipeCard />
+        <PremiumRecipeCard :recipe="recipe" />
       </div>
     </div>
   </div>
@@ -21,6 +21,19 @@ export default {
   name: "App",
   components: {
     PremiumRecipeCard
+  },
+  data() {
+    return {
+      recipe: {
+        title: "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice",
+        ratings: "200 Ratings",
+        time: "24 min",
+        calories: "489 Calories",
+        carbs: "20g",
+        protein: "16g",
+        fats: "6g"
+      }
+    };
   }
 };
 </script>

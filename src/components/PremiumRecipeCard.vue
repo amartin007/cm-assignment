@@ -13,7 +13,7 @@
     </div>
     <div class="card-content">
       <h3 class="card-content-heading">
-        Low Carb Thai Chicken Curry With Coconut Cauliflower Rice
+        {{ recipe.title }}
       </h3>
       <div class="rating">
         <img src="../assets/icons/star_full.svg" />
@@ -24,21 +24,21 @@
           <img src="../assets/icons/star_empty.svg" />
           <img src="../assets/icons/star_empty.svg" />
         </div>
-        <span class="rating-text">200 Ratings</span>
+        <span class="rating-text">{{ recipe.ratings }}</span>
       </div>
       <div class="card-content-bottom">
         <span>
           <img src="../assets/icons/clock.svg" class="icon-align" />
-          <span> 24 min</span>
+          <span> {{ recipe.time }}</span>
         </span>
         <span>
           <img src="../assets/icons/flame.svg" class="icon-align" />
-          <span> 489 Calories</span>
+          <span> {{ recipe.calories }}</span>
         </span>
         <div class="macros">
-          <span class="dot red-dot"></span> 20g
-          <span class="dot blue-dot"></span> 16g
-          <span class="dot gold-dot"></span> 6g
+          <span class="dot red-dot"></span> {{ recipe.carbs }}
+          <span class="dot blue-dot"></span> {{ recipe.protein }}
+          <span class="dot gold-dot"></span> {{ recipe.fats }}
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
 export default {
   name: "PremiumRecipeCard",
   props: {
-    msg: String
+    recipe: Object
   }
 };
 </script>
