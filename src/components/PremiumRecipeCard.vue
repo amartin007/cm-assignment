@@ -32,16 +32,14 @@
         <img
           v-if="halfStars > 0"
           src="../assets/icons/star_half.svg"
-          class="rating-stacked-top"
+          class="half-star"
         />
-        <span :class="{ 'rating-stacked-bottom': halfStars > 0 }">
-          <img
-            src="../assets/icons/star_empty.svg"
-            v-for="num in emptyStars"
-            :key="num"
-          />
-        </span>
-        <span class="rating-text">{{ recipe.ratings }}</span>
+        <img
+          src="../assets/icons/star_empty.svg"
+          v-for="num in emptyStars"
+          :key="num"
+        />
+        <span class="rating-text"> {{ recipe.ratings }}</span>
       </div>
       <div class="card-content-bottom">
         <span>
@@ -95,7 +93,7 @@ export default {
       return this.recipe.starRating % 1;
     },
     emptyStars() {
-      return 5 - Math.floor(this.recipe.starRating);
+      return 5 - Math.ceil(this.recipe.starRating);
     }
   }
 };
@@ -105,10 +103,10 @@ export default {
 .card-wrapper {
   width: 343px;
   margin: auto;
-  font-size: 14px;
   border-radius: 12px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
 }
 .card-wrapper:hover {
   cursor: pointer;
@@ -134,6 +132,7 @@ export default {
   bottom: 10px;
   left: 10px;
   width: 152px;
+  font-size: 14px;
 }
 .premium-bg {
   background-color: #eee;
@@ -159,7 +158,7 @@ export default {
 .card-content-heading {
   text-align: left;
   margin: 0;
-  height: 38px;
+  height: 45px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
@@ -168,8 +167,9 @@ export default {
 .rating {
   padding: 20px 0 5px 0;
 }
-.rating img {
-  height: 13px;
+.rating img.half-star {
+  height: 14px;
+  margin: 0 0 -1px -1px;
 }
 .rating-stacked-bottom {
   display: inline-block;

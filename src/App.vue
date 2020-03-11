@@ -67,11 +67,4 @@ export default {
   max-width: 960px;
   margin: auto;
 }
-
-/** Remove these styles when done */
-.premium-recipe-wrapper {
-  margin-top: 100px;
-  border: 2px dashed red;
-  padding: 16px;
-}
 </style>
