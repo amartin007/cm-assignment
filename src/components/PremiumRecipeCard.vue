@@ -26,8 +26,8 @@
       <div class="rating">
         <img
           src="../assets/icons/star_full.svg"
-          v-for="num in fullStars"
-          :key="num"
+          v-for="fullStar in fullStars"
+          :key="'A' + fullStar"
         />
         <img
           v-if="halfStars > 0"
@@ -36,8 +36,8 @@
         />
         <img
           src="../assets/icons/star_empty.svg"
-          v-for="num in emptyStars"
-          :key="num"
+          v-for="emptyStar in emptyStars"
+          :key="'B' + emptyStar"
         />
         <span class="rating-text"> {{ recipe.ratings }}</span>
       </div>
@@ -129,17 +129,17 @@ export default {
 }
 .premium {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  width: 152px;
-  font-size: 14px;
+  bottom: 9px;
+  left: 8px;
+  width: 118px;
+  font-size: 12px;
 }
 .premium-bg {
   background-color: #eee;
   opacity: 0.4;
-  height: 25px;
-  border-radius: 25px;
-  bottom: 9px;
+  height: 22px;
+  border-radius: 40px;
+  bottom: 8px;
 }
 .premium-content {
   color: #fff;
@@ -178,7 +178,6 @@ export default {
 .rating-text {
   color: #3ab188;
   padding-left: 3px;
-  font-weight: bold;
 }
 .card-content-bottom {
   font-size: 14px;
