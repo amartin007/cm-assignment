@@ -1,5 +1,5 @@
 <template>
-  <div class="card-wrapper">
+  <div class="card-wrapper" @click="recipeClicked">
     <div class="card-top">
       <div class="card-img">
         <img
@@ -83,6 +83,9 @@ export default {
       return this.recipe.energyUnit == "kilojoules"
         ? `${kj} Kj`
         : `${calories} Calories`;
+    },
+    recipeClicked() {
+      this.$emit('recipeClicked');
     }
   },
   created() {
@@ -148,11 +151,15 @@ export default {
 }
 .card-content-heading {
   text-align: left;
-  padding-bottom: 15px;
   margin: 0;
+  height: 38px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .rating {
-  padding-bottom: 5px;
+  padding: 20px 0 5px 0;
 }
 .rating img {
   height: 13px;

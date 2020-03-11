@@ -12,7 +12,6 @@ export default {
 export const Default = () => ({
   components: { PremiumRecipeCard },
   props: {
-    // Add your props here and hook them up to the template below
     recipe: {
       default: object('recipe', { 
         title: "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice",
@@ -28,6 +27,6 @@ export const Default = () => ({
       })
     }
   },
-  template: '<PremiumRecipeCard @click="action" :recipe="recipe" />',
+  template: '<PremiumRecipeCard @recipeClicked="action" :recipe="recipe" />',
   methods: { action: action("clicked") }
 });
